@@ -1,5 +1,8 @@
 import { type JSX } from "react";
 
+
+
+
 export default function BalanceCard({amount, locked}: {
     amount: number;
     locked: number;

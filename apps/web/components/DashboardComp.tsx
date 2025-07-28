@@ -6,6 +6,10 @@ import { DashboardSidebar } from "@repo/ui/dashboardSidebar"
 import { Card } from "@repo/ui/dashboardCard"
 import Link from "next/link"
 import { signOut } from "next-auth/react"
+   
+
+
+
 
 export default function Dashboard({user}: {user: string}): JSX.Element {
 

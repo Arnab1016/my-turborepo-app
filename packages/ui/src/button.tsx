@@ -1,20 +1,18 @@
-"use client";
-
-import { ReactNode } from "react";
+import { type JSX } from "react";
 
 interface ButtonProps {
-  children: ReactNode;
-  className?: string;
-  appName: string;
+    label: string,
+    onClick: () => void
 }
 
-export const Button = ({ children, className, appName }: ButtonProps) => {
-  return (
-    <button
-      className={className}
-      onClick={() => alert(`Hello from your ${appName} app!`)}
-    >
-      {children}
-    </button>
-  );
-};
+export function PrimaryButton({label, onClick}: ButtonProps): JSX.Element {
+    return (
+        <button className="w-full hover:cursor-pointer" onClick={onClick}>{label}</button>
+    )
+}
+
+export function SecondaryButton({label, onClick}: ButtonProps): JSX.Element {
+    return (
+        <button className="w-full text-zinc-900 hover:text-purple-500 hover:cursor-pointer" onClick={onClick}>{label}</button>
+    )
+}

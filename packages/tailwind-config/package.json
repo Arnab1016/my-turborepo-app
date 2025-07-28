@@ -1,0 +1,21 @@
+{
+  "name": "@repo/tailwind-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "exports": {
+     ".": "./shared-styles.css",
+    "./postcss": "./postcss.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "postcss": "^8.4.31",
+    "tailwindcss": "^4.1.11"
+  }
+}

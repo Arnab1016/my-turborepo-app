@@ -1,7 +1,11 @@
 import { PeerTranxComp } from "../../components/PeerTranxPage"; 
 import { getServerSession } from "next-auth";
 import { authOptions } from "../lib/auth";
-import { prisma } from "@repo/db"
+import { prisma } from "@repo/db"  
+
+
+
+
 
 const getPeerToPeerTranxs = async() => {
     const session = await getServerSession(authOptions);

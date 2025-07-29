@@ -3,7 +3,10 @@
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { Appbar } from "@repo/ui/appbar";
-import { Content } from '@repo/ui/landingPageContent'
+import { Content } from '@repo/ui/landingPageContent' 
+
+
+
 
 export function LandingPage() {
     const router = useRouter();

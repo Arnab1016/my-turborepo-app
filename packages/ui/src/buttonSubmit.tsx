@@ -6,7 +6,7 @@ import { type JSX } from "react";
 
 interface ButtonProps {
   label: string,
-  type: string
+  type: 'submit' | 'reset' | 'button';
 }
 
 export function Button({label, type}: ButtonProps): JSX.Element {

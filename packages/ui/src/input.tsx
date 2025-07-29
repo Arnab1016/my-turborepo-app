@@ -12,7 +12,7 @@ export function InputBox({label, type, placeholder, onChange}: InputProps): JSX.
     return (
         <div className="grid gap-2">
             <label>{label}</label>
-            <input type={type} onChange={onChange} placeholder={placeholder} className="pl-2 py-2 border border-zinc-300 h-30% rounded-sm focus:outline-blue-400/80"/>
+            <input type={type} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} className="pl-2 py-2 border border-zinc-300 h-30% rounded-sm focus:outline-blue-400/80"/>
         </div>
     )
 } 

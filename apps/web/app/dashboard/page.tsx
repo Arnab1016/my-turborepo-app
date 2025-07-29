@@ -8,7 +8,7 @@ export default async function Page() {
     const session = await getServerSession(authOptions);
     return (
         <div>
-            <Dashboard user={session.user.name}/>
+            <Dashboard user={session?.user?.name ?? ""}/>
         </div>
     )
 }

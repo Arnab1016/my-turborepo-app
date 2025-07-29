@@ -2,7 +2,7 @@ import { type JSX } from "react";
 
 interface ButtonProps {
     label: string,
-    onClick: () => void
+    onClick?: () => void
 }
 
 export function PrimaryButton({label, onClick}: ButtonProps): JSX.Element {

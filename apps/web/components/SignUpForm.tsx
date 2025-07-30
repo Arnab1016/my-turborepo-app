@@ -52,10 +52,10 @@ export default function SignUpForm(): JSX.Element {
                     submitUser(email, name, number, password);
                     router.push('/');
                 }}>
-                    <InputBox label={"Email"} placeholder={"johndoe@gmail.com"} type={"email"} onChange={(e) => setEmail(e.target.value)}></InputBox>
-                    <InputBox label={"Name"} placeholder={"John Doe"} type={"text"} onChange={(e) => setName(e.target.value)}></InputBox>
-                    <InputBox label={"Phone no"} placeholder={"0-123-456-789"} type={"text"} onChange={(e) => setNumber(e.target.value)}></InputBox>
-                    <InputBox label={"Password"} placeholder={"••••••••••"} type={"password"} onChange={(e) => setPassword(e.target.value)}></InputBox>
+                    <InputBox label={"Email"} placeholder={"johndoe@gmail.com"} type={"email"} onChange={(value) => setEmail(value)}></InputBox>
+                    <InputBox label={"Name"} placeholder={"John Doe"} type={"text"} onChange={(value) => setName(value)}></InputBox>
+                    <InputBox label={"Phone no"} placeholder={"0-123-456-789"} type={"text"} onChange={(value) => setNumber(value)}></InputBox>
+                    <InputBox label={"Password"} placeholder={"••••••••••"} type={"password"} onChange={(value) => setPassword(value)}></InputBox>
                     <Button label={"Sign up"} type={"submit"}></Button>
                 </form>
                 <BottomPara label={"Already have an account? "} linkText={"Login here"} onClick={() => {signIn()}}/>

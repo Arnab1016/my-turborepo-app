@@ -26,9 +26,9 @@ export default function TransferMoney(): JSX.Element {
 
     const router = useRouter();
 
-    const [redirectUrl, setRedirectUrl] = useState(SUPPORTED_BANKS[0].redirectUrl || "");
+    const [redirectUrl, setRedirectUrl] = useState(SUPPORTED_BANKS[0]!.redirectUrl);
     const [amount, setAmount] = useState(0);
-    const [provider, setProvider] = useState(SUPPORTED_BANKS[0].name || "");
+    const [provider, setProvider] = useState(SUPPORTED_BANKS[0]!.name);
 
     return (
         <div className="mx-4">

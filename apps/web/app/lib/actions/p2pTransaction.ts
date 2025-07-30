@@ -8,6 +8,11 @@ import { prisma } from "@repo/db"
 
 export const PeerTransaction = async (toNumber: string, amount: number) => {
     const session = await getServerSession(authOptions);
+    if(!session) {
+        return {
+            messsage: "Empty session"
+        }
+    }
     const fromUser = await prisma.user.findUnique({
         where: {
             id: session.user.id

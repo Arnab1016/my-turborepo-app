@@ -15,11 +15,11 @@ type PeerTransaction = {
 }
 
 export type PeerTranxProps = {
-    peerTrnxs: PeerTransaction[],
+    peerTransactions: PeerTransaction[],
     toUsers: Record<string, string>
 }
 
-export function PeerTranxComp({peerTrnxs, toUsers}: PeerTranxProps): JSX.Element {
+export function PeerTranxComp({peerTransactions, toUsers}: PeerTranxProps): JSX.Element {
     return(
         <div className="h-screen bg-gray-100">
             <DashboardAppbar onSignOut={() => {
@@ -28,7 +28,7 @@ export function PeerTranxComp({peerTrnxs, toUsers}: PeerTranxProps): JSX.Element
             <DashboardSidebar LinkComponent={Link}/>
             <div className='mt-12 ml-60 flex justify-around items-center h-screen'>
                 <SendCard/>
-                <PeerTranxCard peerTransactions={peerTrnxs} toUsers={toUsers}/>
+                <PeerTranxCard peerTransactions={peerTransactions} toUsers={toUsers}/>
             </div>
         </div>
     )

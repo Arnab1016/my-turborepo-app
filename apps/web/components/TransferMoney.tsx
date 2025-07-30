@@ -34,7 +34,7 @@ export default function TransferMoney(): JSX.Element {
         <div className="mx-4">
             <ul className="space-y-4">
                 <li className="flex flex-col justify-between">
-                    <SecondaryInputBox label={"Amount"}  type={"number"} onChange={(value) => setAmount(Number(value))}/>
+                    <SecondaryInputBox label={"Amount"}  type={"number"} onChange={(value) => setAmount(Number(value))} placeholder={""}/>
                 </li>
                 <li className="flex flex-col justify-between">
                     <span className="text-gray-500 font-semibold">Bank</span>

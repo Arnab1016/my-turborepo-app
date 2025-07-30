@@ -5,6 +5,9 @@ import { prisma } from "@repo/db"
 
 const getPeerToPeerTranxs = async() => {
     const session = await getServerSession(authOptions);
+    if(!session) {
+        return null;
+    }
     const peerTrnxs = await prisma.p2PTransaction.findMany({
         where: {
             fromUserId: session.user.id
@@ -29,16 +32,19 @@ const getToUserInfo = async(userIds: string[]) => {
         }
     })
 
-    return Object.fromEntries(users.map(u => [u.id, u.name]));
+    return Object.fromEntries(users.map(u => [u.id, u.name ?? ""]));
 }
 
 
 export default async function () {
     const peerTrnxs = await getPeerToPeerTranxs();
+    if(!peerTrnxs){
+        return <div>Please log in to view your transactions.</div>
+    }
     const toUsers = await getToUserInfo(peerTrnxs.map(t => t.toUserId));
     return (
         <div>
-            <PeerTranxComp peerTrnxs={peerTrnxs} toUsers={toUsers}/>
+            <PeerTranxComp peerTransactions={peerTrnxs} toUsers={toUsers}/>
         </div>
     )
 }

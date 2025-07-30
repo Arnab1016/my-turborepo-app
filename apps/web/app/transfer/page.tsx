@@ -11,6 +11,9 @@ import { prisma } from "@repo/db";
 
 const getOnRampTransactions = async() => {
     const session = await getServerSession(authOptions);
+    if(!session){
+        return null;
+    }
     const txns =  await prisma.onRampTransaction.findMany({
         where: { userId: session.user.id }
     })
@@ -25,6 +28,9 @@ const getOnRampTransactions = async() => {
 
 const getUserBalance = async() => {
     const session = await getServerSession(authOptions);
+    if(!session){
+        return null;
+    }
     const balance = await prisma.balance.findFirst({
         where: {
             userId: session.user.id
@@ -43,9 +49,12 @@ export default async function Page() {
     const transactions = await getOnRampTransactions();
     const balance = await getUserBalance();
 
+    if(!session || !transactions || !balance){
+        return <div>Please log in to view your transactions.</div>
+    }
     return (
         <div>
-            <TransferComp transactions={transactions} balance={balance} user={session.user.name}/>
+            <TransferComp transactions={transactions} balance={balance} user={session?.user?.name ?? ""}/>
         </div>
     )
 }

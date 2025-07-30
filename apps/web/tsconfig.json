@@ -8,6 +8,7 @@
     ],
     "isolatedModules": true
   },
+  "types": ["next-auth", "./types/next-auth"],
   "include": [
     "**/*.ts",
     "**/*.tsx",

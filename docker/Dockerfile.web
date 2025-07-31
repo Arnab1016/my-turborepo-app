@@ -1,0 +1,23 @@
+FROM node:24-alpine3.21
+
+WORKDIR /app
+
+# Copy base config
+COPY package.json ./package.json
+COPY package-lock.json ./package-lock.json
+COPY turbo.json ./turbo.json
+
+# Copy monorepo packages
+COPY apps ./apps
+COPY packages ./packages
+
+# Install dependencies
+RUN npm install
+
+# Generate Prisma client
+RUN cd packages/db && npx prisma generate
+# Build the monorepo
+RUN npm run build
+
+# Start the user-facing app (adjust if needed)
+CMD ["npm", "run", "start-web-app"]
